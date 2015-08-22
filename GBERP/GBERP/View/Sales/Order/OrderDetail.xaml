@@ -1,0 +1,184 @@
+﻿<UserControl x:Class="GBERP.View.Sales.Order.OrderDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:vm="clr-namespace:GBERP.ViewModel.Sales.Order"
+             xmlns:converter="clr-namespace:GBERP.Model.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024" Background="White">
+    <UserControl.DataContext>
+        <vm:OrderDetail></vm:OrderDetail>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <converter:BoolIntConverter x:Key="biConverter">
+        </converter:BoolIntConverter>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="85"></ColumnDefinition>
+            <ColumnDefinition Width="105"></ColumnDefinition>
+            <ColumnDefinition Width="65"></ColumnDefinition>
+            <ColumnDefinition Width="105"></ColumnDefinition>
+            <ColumnDefinition Width="75"></ColumnDefinition>
+            <ColumnDefinition Width="105"></ColumnDefinition>
+            <ColumnDefinition Width="85"></ColumnDefinition>
+            <ColumnDefinition Width="105"></ColumnDefinition>
+            <ColumnDefinition Width="65"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--第一行-->
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource FilterPrompt}">商检批号:</TextBlock>
+        <TextBox x:Name="txtSjph" Grid.Row="0" Grid.Column="1" Height="20" Width="100" Style="{StaticResource FilterControl}"></TextBox>
+        <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource FilterPrompt}">订单批号:</TextBlock>
+        <TextBox x:Name="txtDdph" Grid.Row="0" Grid.Column="3" Height="20" Width="100" IsReadOnly="True" Style="{StaticResource FilterControl}"></TextBox>
+        <TextBlock Grid.Row="0" Grid.Column="4" Style="{StaticResource FilterPrompt}">业务员:</TextBlock>
+        <ComboBox x:Name="ddlYwy" Grid.Row="0" Grid.Column="5" Height="20" Width="100" 
+                  ItemsSource="{Binding ListYwy}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedYwybh, Mode=TwoWay}"
+                  Style="{StaticResource FilterControl}"></ComboBox>
+        <TextBlock Grid.Row="0" Grid.Column="6" Style="{StaticResource FilterPrompt}">销售区域:</TextBlock>
+        <ComboBox x:Name="ddlXsqy" Grid.Row="0" Grid.Column="7" Height="20" Width="100" 
+                  ItemsSource="{Binding ListYwbm}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedYwbmbh,Mode=TwoWay}"
+                  Style="{StaticResource FilterControl}"></ComboBox>
+        <TextBlock Grid.Row="0" Grid.Column="8" Style="{StaticResource FilterPrompt}">销往国家:</TextBlock>
+        <ComboBox x:Name="ddlXwgj" Grid.Row="0" Grid.Column="9" Height="20" Width="100" 
+                  Style="{StaticResource FilterControl}"
+                  ItemsSource="{Binding ListXwgj}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedXwgjbh,Mode=TwoWay}"></ComboBox>
+        <!--第二行-->
+        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource FilterPrompt}">客户下单日期:</TextBlock>
+        <DatePicker x:Name="txtKhxdrq" Grid.Row="1" Grid.Column="1" Height="20" Width="100" 
+                    SelectedDate="{Binding Khxdrq,Mode=TwoWay}" 
+                    SelectedDateFormat="Short" 
+                    Style="{StaticResource FilterControl}"></DatePicker>
+        <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource FilterPrompt}">订单来源:</TextBlock>
+        <ComboBox x:Name="ddlDdly" Grid.Row="1" Grid.Column="3" Height="20" Width="100" 
+                  ItemsSource="{Binding ListDdly}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedDdlybh,Mode=TwoWay}"
+                  Style="{StaticResource FilterControl}"></ComboBox>
+        <TextBlock Grid.Row="1" Grid.Column="4" Style="{StaticResource FilterPrompt}" >
+            <Hyperlink Command="{Binding SelectCustomer}">客户:</Hyperlink>
+        </TextBlock>
+        <TextBox x:Name="txtKhbh" Grid.Row="1" Grid.Column="5" Height="20" Width="100" Style="{StaticResource FilterControl}"></TextBox>
+        <TextBox x:Name="txtKhmc" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="4" IsReadOnly="True" Height="20" Width="355" Style="{StaticResource FilterControl}"></TextBox>
+        <!--第三行-->
+        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource FilterPrompt}">合同号:</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" Height="20" Width="100" Style="{StaticResource FilterControl}"></TextBox>
+        <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource FilterPrompt}">成交方式:</TextBlock>
+        <ComboBox Grid.Row="2" Grid.Column="3" Height="20" Width="100" 
+                  ItemsSource="{Binding ListCjfs}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedCjfsbh,Mode=TwoWay}"
+                  Style="{StaticResource FilterControl}"></ComboBox>
+        <TextBlock Grid.Row="2" Grid.Column="4" Style="{StaticResource FilterPrompt}">开票要求:</TextBlock>
+        <ComboBox Grid.Row="2" Grid.Column="5" Height="20" Width="100" 
+                  Style="{StaticResource FilterControl}"
+                  ItemsSource="{Binding ListKpyq}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedKpyqbh,Mode=TwoWay}"></ComboBox>
+        <TextBlock Grid.Row="2" Grid.Column="6" Style="{StaticResource FilterPrompt}">备货方式:</TextBlock>
+        <ComboBox Grid.Row="2" Grid.Column="7" Height="20" Width="100" 
+                  Style="{StaticResource FilterControl}"
+                  ItemsSource="{Binding ListBhfs}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedBhfsbh,Mode=TwoWay}"></ComboBox>
+        <TextBlock Grid.Row="2" Grid.Column="8" Style="{StaticResource FilterPrompt}">组单出货:</TextBlock>
+        <ComboBox Grid.Row="2" Grid.Column="9" Height="20" Width="100" 
+                  Style="{StaticResource FilterControl}"
+                  ItemsSource="{Binding ListZdch}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedZdchbh,Mode=TwoWay}"></ComboBox>
+        <!--第四行-->
+        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource FilterPrompt}">付款单位名称:</TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" Height="20" Width="100" Style="{StaticResource FilterControl}"></TextBox>
+        <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" IsReadOnly="True" Height="20" Width="345" Style="{StaticResource FilterControl}"/>
+        <TextBlock Grid.Row="3" Grid.Column="6" Style="{StaticResource FilterPrompt}">付款单位地址:</TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="3" Height="20" Width="270" Style="{StaticResource FilterControl}"></TextBox>
+        <!--第五行-->
+        <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource FilterPrompt}">收货人:</TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="1" Height="20" Width="100" Style="{StaticResource FilterControl}"></TextBox>
+        <TextBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="4" IsReadOnly="True" Height="20" Width="345" Style="{StaticResource FilterControl}"></TextBox>
+        <TextBlock Grid.Row="4" Grid.Column="6" Style="{StaticResource FilterPrompt}">收货人地址:</TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="3" IsReadOnly="True" Height="20" Width="270" Style="{StaticResource FilterControl}"></TextBox>
+        <!--第六行-->
+        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource FilterPrompt}">提货用途:</TextBlock>
+        <ComboBox Grid.Row="5" Grid.Column="1" Height="20" Width="100" 
+                  Style="{StaticResource FilterControl}"
+                  ItemsSource="{Binding ListThyt}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedThytbh,Mode=TwoWay}"></ComboBox>
+        <TextBlock Grid.Row="5" Grid.Column="2" Style="{StaticResource FilterPrompt}">下达工厂:</TextBlock>
+        <ComboBox Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" Height="20" Width="280" 
+                  Style="{StaticResource FilterControl}"
+                  ItemsSource="{Binding ListXdgc}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedXdgcbh,Mode=TwoWay}"></ComboBox>
+        <TextBlock Grid.Row="5" Grid.Column="6" Style="{StaticResource FilterPrompt}">生产车间:</TextBlock>
+        <ComboBox Grid.Row="5" Grid.Column="7" Height="20" Width="100" 
+                  Style="{StaticResource FilterControl}"
+                  ItemsSource="{Binding ListSccj}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedSccjbh,Mode=TwoWay}"></ComboBox>
+        <TextBlock Grid.Row="5" Grid.Column="8" Style="{StaticResource FilterPrompt}">运输方式:</TextBlock>
+        <ComboBox Grid.Row="5" Grid.Column="9" Height="20" Width="100" 
+                  Style="{StaticResource FilterControl}"
+                  ItemsSource="{Binding ListYsfs}"
+                  DisplayMemberPath="Text"
+                  SelectedValuePath="Value"
+                  SelectedValue="{Binding SelectedYsfsbh,Mode=TwoWay}"></ComboBox>
+        <!--第七行-->
+        <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource FilterPrompt}">紧急订单:</TextBlock>
+        <ComboBox Grid.Row="6" Grid.Column="1" 
+                  Height="20" Width="100" 
+                  SelectedIndex="{Binding IsJjdd, Mode=TwoWay, Converter={StaticResource biConverter}}" 
+                  Style="{StaticResource FilterControl}">
+            <ComboBox.Items>
+                <ComboBoxItem>是</ComboBoxItem>
+                <ComboBoxItem>否</ComboBoxItem>
+            </ComboBox.Items>
+        </ComboBox>
+        <TextBlock Grid.Row="6" Grid.Column="2" Style="{StaticResource FilterPrompt}">样品订单:</TextBlock>
+        <ComboBox Grid.Row="6" Grid.Column="3" Height="20" Width="100" 
+                  SelectedIndex="{Binding IsYpdd, Mode=TwoWay, Converter={StaticResource biConverter}}" 
+                  Style="{StaticResource FilterControl}">
+            <ComboBox.Items>
+                <ComboBoxItem>是</ComboBoxItem>
+                <ComboBoxItem>否</ComboBoxItem>
+            </ComboBox.Items>
+        </ComboBox>
+        <TextBlock Grid.Row="6" Grid.Column="4" Style="{StaticResource FilterPrompt}">关联订单号:</TextBlock>
+        <TextBox Grid.Row="6" Grid.Column="5" IsReadOnly="True" Height="20" Width="100" Style="{StaticResource FilterControl}"></TextBox>
+        <TextBlock Grid.Row="6" Grid.Column="6" Style="{StaticResource FilterPrompt}">备注:</TextBlock>
+        <TextBox Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="3" Height="20" Width="270" Style="{StaticResource FilterControl}"></TextBox>
+
+    </Grid>
+</UserControl>

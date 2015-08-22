@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6b6d19d1-918f-4e55-b907-b69ad5b0544a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SqlExecuteService.xsd" MetadataType="Schema" ID="1776b9b1-76b3-4596-97c3-c746ce7a1f83" SourceId="1" SourceUrl="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc?xsd=xsd1" />
+    <MetadataFile FileName="SqlExecuteService1.xsd" MetadataType="Schema" ID="0730fb17-c518-4b9d-85b8-a29ef0627157" SourceId="1" SourceUrl="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc?xsd=xsd0" />
+    <MetadataFile FileName="SqlExecuteService2.xsd" MetadataType="Schema" ID="a5436c3b-14b4-4ea1-9fb9-2551bb15f953" SourceId="1" SourceUrl="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc?xsd=xsd3" />
+    <MetadataFile FileName="SqlExecuteService3.xsd" MetadataType="Schema" ID="be3e66e7-8634-4f6c-b513-2185844afcb0" SourceId="1" SourceUrl="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc?xsd=xsd2" />
+    <MetadataFile FileName="SqlExecuteService.disco" MetadataType="Disco" ID="ede85ff8-2387-4b69-92fb-6551632f4fe0" SourceId="1" SourceUrl="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc?disco" />
+    <MetadataFile FileName="SqlExecute.wsdl" MetadataType="Wsdl" ID="1929ac28-36a3-457a-a78f-f0d3f47389c1" SourceId="1" SourceUrl="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

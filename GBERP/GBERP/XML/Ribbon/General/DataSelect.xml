@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Ribbon>
+  <RibbonTab Header="开始" IsSelected="True">
+    <RibbonGroup Header="选择">
+      <RibbonButton LargeImageSource="Images/ok.png" Label="确定" 
+                    Command="{Binding RibbonCommand}"
+                    CommandParameter="Submit"></RibbonButton>
+      <RibbonButton SmallImageSource="Images/checkbox_checked.png" Label="全选"
+                    Command="{Binding RibbonCommand}"
+                    CommandParameter="SelectAll"></RibbonButton>
+      <RibbonButton SmallImageSource="Images/checkbox_blank.png" Label="全清"
+                    Command="{Binding RibbonCommand}"
+                    CommandParameter="ClearSelect"></RibbonButton>
+    </RibbonGroup>
+  </RibbonTab>
+</Ribbon>

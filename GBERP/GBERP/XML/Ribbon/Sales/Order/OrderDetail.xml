@@ -1,0 +1,23 @@
+﻿<Ribbon>
+  <RibbonTab Header="订单" IsSelected="True">
+    <RibbonGroup Header="编辑">
+      <RibbonButton LargeImageSource="Images/save.png" Label="保存" 
+                    Command="{Binding RibbonCommand}"
+                    CommandParameter="Save"></RibbonButton>
+      <RibbonButton SmallImageSource="Images/new.png" Label="新增"
+                    Command="{Binding RibbonCommand}"
+                    CommandParameter="Insert"></RibbonButton>
+      <RibbonButton SmallImageSource="Images/submit.png" Label="报送"
+                    Command="{Binding RibbonCommand}"
+                    CommandParameter="Submit"></RibbonButton>
+    </RibbonGroup>
+    <RibbonGroup Header="审阅">
+      <RibbonButton LargeImageSource="Images/approve.png" Label="批准"
+                    Command="{Binding RibbonCommand}"
+                    CommandParameter="Approve"></RibbonButton>
+      <RibbonButton SmallImageSource="Images/reject.png" Label="退回"
+                    Command="{Binding RibbonCommand}"
+                    CommandParameter="Reject"></RibbonButton>
+    </RibbonGroup>
+  </RibbonTab>
+</Ribbon>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SqlExecuteService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SqlExecuteService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="AppLoginResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmpID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmpName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Version" type="xs:short" />
+          <xs:element minOccurs="0" name="VersionName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AppLoginResult" nillable="true" type="tns:AppLoginResult" />
+  <xs:complexType name="ExecuteResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExecuteResult" nillable="true" type="tns:ExecuteResult" />
+  <xs:complexType name="QueryResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteResult">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ResultDictionary" nillable="true" type="q1:ArrayOfKeyValueOfintArrayOfKeyValueOfintstringty7Ep6D1" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="QueryResult" nillable="true" type="tns:QueryResult" />
+  <xs:complexType name="StatementResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ConnectionString" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Statements" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="StatementResult" nillable="true" type="tns:StatementResult" />
+  <xs:complexType name="QueryResultSet">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteResult">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ResultDictionary" nillable="true" type="q2:ArrayOfKeyValueOfintArrayOfKeyValueOfintArrayOfKeyValueOfintstringty7Ep6D1ty7Ep6D1" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="QueryResultSet" nillable="true" type="tns:QueryResultSet" />
+  <xs:complexType name="LoginResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ExecuteResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CanExecDDL" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EmpName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoginResult" nillable="true" type="tns:LoginResult" />
+</xs:schema>

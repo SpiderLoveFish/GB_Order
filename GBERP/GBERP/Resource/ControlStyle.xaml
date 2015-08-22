@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--filter prompt control -->
+    <Style TargetType="TextBlock"
+           x:Key="FilterPrompt">
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+        <Setter Property="Margin" Value="0 0 5 0"></Setter>
+    </Style>
+    <!--filter data control-->
+    <Style x:Key="FilterControl" TargetType="{x:Type Control}">
+        <Style.Triggers>
+            <Trigger Property="TextBox.IsReadOnly" Value="True">
+                <Setter Property="Background" Value="LightGray"></Setter>
+            </Trigger>
+        </Style.Triggers>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+    </Style>
+    
+
+</ResourceDictionary>

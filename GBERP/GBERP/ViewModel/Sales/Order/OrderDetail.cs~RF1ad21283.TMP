@@ -1,0 +1,266 @@
+﻿using GBERP.AF;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+
+namespace GBERP.ViewModel.Sales.Order
+{
+    public class OrderDetail : ViewModelBase
+    {
+        public OrderDetail()
+        {
+            IsJjdd = false;
+            IsYpdd = false;
+            InitControl();
+        }
+
+        #region " Properties "
+
+        private bool _isJjdd;
+        /// <summary>
+        /// 是否紧急订单
+        /// </summary>
+        public bool IsJjdd
+        {
+            get
+            {
+                return _isJjdd;
+            }
+            set
+            {
+                _isJjdd = value;
+                NotifyPropertyChanged("IsJjdd");
+            }
+        }
+
+        private bool _isYpdd;
+        /// <summary>
+        /// 是否样品订单
+        /// </summary>
+        public bool IsYpdd
+        {
+            get
+            {
+                return _isYpdd;
+            }
+            set
+            {
+                _isYpdd = value;
+                NotifyPropertyChanged("IsYpdd");
+            }
+        }
+
+        private List<TextValuePair> _listXwgj;
+        /// <summary>
+        /// 销往国家列表
+        /// </summary>
+        public List<TextValuePair> ListXwgj
+        {
+            get
+            {
+                return _listXwgj;
+            }
+            set
+            {
+                _listXwgj = value;
+                NotifyPropertyChanged("ListXwgj");
+            }
+        }
+
+        private List<Model.Sales.Order.Ywy> _listYwy;
+        /// <summary>
+        /// 业务员列表
+        /// </summary>
+        public List<Model.Sales.Order.Ywy> ListYwy
+        {
+            get
+            {
+                return _listYwy;
+            }
+            set
+            {
+                _listYwy = value;
+                NotifyPropertyChanged("ListYwy");
+            }
+        }
+
+        private List<TextValuePair> _listYwbm;
+        /// <summary>
+        /// 业务部门列表
+        /// </summary>
+        public List<TextValuePair> ListYwbm
+        {
+            get
+            {
+                return _listYwbm;
+            }
+            set
+            {
+                _listYwbm = value;
+                NotifyPropertyChanged("ListYwbm");
+            }
+        }
+
+        private string _selectedXwgjbh;
+        /// <summary>
+        /// 当前选中的销往国家编号
+        /// </summary>
+        public string SelectedXwgjbh
+        {
+            get
+            {
+                return _selectedXwgjbh;
+            }
+            set
+            {
+                _selectedXwgjbh = value;
+                NotifyPropertyChanged("SelectedXwgjbh");
+            }
+        }
+
+        private string _selectedYwbmbh;
+        /// <summary>
+        /// 当前选中的业务员编号
+        /// </summary>
+        public string SelectedYwbmbh
+        {
+            get
+            {
+                return _selectedYwbmbh;
+            }
+            set
+            {
+                _selectedYwbmbh = value;
+                NotifyPropertyChanged("SelectedYwbmbh");
+            }
+        }
+
+        private string _selectedYwybh;
+        /// <summary>
+        /// 当前选中的业务员编号
+        /// </summary>
+        public string SelectedYwybh
+        {
+            get
+            {
+                return _selectedYwybh;
+            }
+            set
+            {
+                _selectedYwybh = value;
+                NotifyPropertyChanged("SelectedYwybh");
+                LoadYwbm();
+            }
+        }
+
+        #region " Commands "
+
+        public ICommand SelectCustomer
+        {
+            get
+            {
+                return new RelayCommand(
+                    p =>
+                    {
+                        App.Alert("hello");
+                    }
+                );
+            }
+        }
+
+        #endregion
+
+        #endregion
+
+        #region " Functions "
+
+        void InitControl()
+        {
+            Task.Run(() =>
+            {
+                LoadYwy();
+            });
+
+        }
+
+        void LoadXwgj()
+        {
+            var qr = AF.DAL.ServiceWrapper.GetData(AF.DAL.ServiceWrapper.FactoryEnum.GBMM,
+                "wcm_Sales_Order_OrderDetail_LoadXwgj");
+            if (!qr.Result)
+            {
+                ReportError(qr.Message);
+                return;
+            }
+            ListXwgj = qr.ResultDictionary.Select(p =>
+                new TextValuePair()
+                {
+                    Text = p.Value[1],
+                    Value = p.Value[0]
+                }).ToList();
+        }
+
+        void LoadYwbm()
+        {
+            var qr = AF.DAL.ServiceWrapper.GetData(AF.DAL.ServiceWrapper.FactoryEnum.GBMM,
+                "wcm_Sales_Order_OrderDetail_LoadYwbm",
+                new Dictionary<string, string>()
+                {
+                    {"ywybh",SelectedYwybh}
+                });
+            if (!qr.Result)
+            {
+                ReportError(qr.Message);
+                return;
+            }
+            ListYwbm = qr.ResultDictionary.Select(p =>
+                new TextValuePair()
+                {
+                    Text = p.Value[1],
+                    Value = p.Value[0]
+                }).ToList();
+            //auto select first item
+            if (ListYwbm.Count > 0)
+                SelectedYwbmbh = ListYwbm[0].Value;
+        }
+
+        void LoadYwy()
+        {
+            var qr = AF.DAL.ServiceWrapper.GetData(AF.DAL.ServiceWrapper.FactoryEnum.GBMM,
+                "wcm_Sales_Order_OrderDetail_LoadYwy",
+                new Dictionary<string, string>()
+                {
+                    {"account",AF.Environment.Identity.Account}
+                });
+            if (!qr.Result)
+            {
+                ReportError(qr.Message);
+                return;
+            }
+            ListYwy = qr.ResultDictionary.Select(p =>
+                new Model.Sales.Order.Ywy()
+                {
+                    Ygbh = p.Value[2],
+                    Ywybh = p.Value[0],
+                    Ywymc = p.Value[1]
+                }).ToList();
+            //if current user in the list, select current user as default.
+            var currentUser = ListYwy.FirstOrDefault(p => p.Ygbh == AF.Environment.Identity.EmpID);
+            if (currentUser != null)
+                SelectedYwybh = currentUser.Ywybh;
+        }
+
+
+
+        void ReportError(string msg)
+        {
+            App.Alert(msg);
+        }
+
+        #endregion
+
+    }
+}

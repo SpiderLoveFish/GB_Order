@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<defaultValue>
+  <item key="ListBhfs" value="1"></item>
+  <item key="ListCjfs" index="0"></item>
+  <item key="ListDdly" index="0"></item>
+  <item key="ListKpyq" index="0"></item>
+  <item key="ListThyt" value="02"></item>
+  <item key="ListYwbm" index="0"></item>
+  <item key="ListZdch" value="N"></item>
+
+</defaultValue>

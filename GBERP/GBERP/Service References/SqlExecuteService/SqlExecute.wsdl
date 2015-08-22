@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SqlExecute" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SqlExecuteService" />
+      <xsd:import schemaLocation="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISqlExecute_ERPLoginFromAndroid_InputMessage">
+    <wsdl:part name="parameters" element="tns:ERPLoginFromAndroid" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_ERPLoginFromAndroid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ERPLoginFromAndroidResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_ExecuteNoneQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteNoneQuery" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_ExecuteNoneQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteNoneQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_ExecuteNoneQueryWithServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteNoneQueryWithServer" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_ExecuteNoneQueryWithServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteNoneQueryWithServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_ExecuteQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQuery" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_ExecuteQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_ExecuteQueryWithServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQueryWithServer" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_ExecuteQueryWithServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteQueryWithServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_GetStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatement" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_GetStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_GetDataSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataSet" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_GetDataSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_SimpleExecuteNoneQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:SimpleExecuteNoneQuery" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_SimpleExecuteNoneQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SimpleExecuteNoneQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_SimpleExecuteNoneQueryWithServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:SimpleExecuteNoneQueryWithServer" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_SimpleExecuteNoneQueryWithServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SimpleExecuteNoneQueryWithServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_BulkInsert_InputMessage">
+    <wsdl:part name="parameters" element="tns:BulkInsert" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_BulkInsert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BulkInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_BulkInsertWithServer_InputMessage">
+    <wsdl:part name="parameters" element="tns:BulkInsertWithServer" />
+  </wsdl:message>
+  <wsdl:message name="ISqlExecute_BulkInsertWithServer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BulkInsertWithServerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISqlExecute">
+    <wsdl:operation name="ERPLoginFromAndroid">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/ERPLoginFromAndroid" message="tns:ISqlExecute_ERPLoginFromAndroid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/ERPLoginFromAndroidResponse" message="tns:ISqlExecute_ERPLoginFromAndroid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNoneQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/ExecuteNoneQuery" message="tns:ISqlExecute_ExecuteNoneQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/ExecuteNoneQueryResponse" message="tns:ISqlExecute_ExecuteNoneQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNoneQueryWithServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/ExecuteNoneQueryWithServer" message="tns:ISqlExecute_ExecuteNoneQueryWithServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/ExecuteNoneQueryWithServerResponse" message="tns:ISqlExecute_ExecuteNoneQueryWithServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/ExecuteQuery" message="tns:ISqlExecute_ExecuteQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/ExecuteQueryResponse" message="tns:ISqlExecute_ExecuteQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQueryWithServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/ExecuteQueryWithServer" message="tns:ISqlExecute_ExecuteQueryWithServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/ExecuteQueryWithServerResponse" message="tns:ISqlExecute_ExecuteQueryWithServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/GetData" message="tns:ISqlExecute_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/GetDataResponse" message="tns:ISqlExecute_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/GetStatement" message="tns:ISqlExecute_GetStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/GetStatementResponse" message="tns:ISqlExecute_GetStatement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/GetDataSet" message="tns:ISqlExecute_GetDataSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/GetDataSetResponse" message="tns:ISqlExecute_GetDataSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/Login" message="tns:ISqlExecute_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/LoginResponse" message="tns:ISqlExecute_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SimpleExecuteNoneQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/SimpleExecuteNoneQuery" message="tns:ISqlExecute_SimpleExecuteNoneQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/SimpleExecuteNoneQueryResponse" message="tns:ISqlExecute_SimpleExecuteNoneQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SimpleExecuteNoneQueryWithServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/SimpleExecuteNoneQueryWithServer" message="tns:ISqlExecute_SimpleExecuteNoneQueryWithServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/SimpleExecuteNoneQueryWithServerResponse" message="tns:ISqlExecute_SimpleExecuteNoneQueryWithServer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/ChangePassword" message="tns:ISqlExecute_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/ChangePasswordResponse" message="tns:ISqlExecute_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BulkInsert">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/BulkInsert" message="tns:ISqlExecute_BulkInsert_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/BulkInsertResponse" message="tns:ISqlExecute_BulkInsert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BulkInsertWithServer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISqlExecute/BulkInsertWithServer" message="tns:ISqlExecute_BulkInsertWithServer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISqlExecute/BulkInsertWithServerResponse" message="tns:ISqlExecute_BulkInsertWithServer_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISqlExecute" type="tns:ISqlExecute">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ERPLoginFromAndroid">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/ERPLoginFromAndroid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNoneQuery">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/ExecuteNoneQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNoneQueryWithServer">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/ExecuteNoneQueryWithServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQuery">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/ExecuteQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteQueryWithServer">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/ExecuteQueryWithServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatement">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/GetStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSet">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/GetDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SimpleExecuteNoneQuery">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/SimpleExecuteNoneQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SimpleExecuteNoneQueryWithServer">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/SimpleExecuteNoneQueryWithServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BulkInsert">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/BulkInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BulkInsertWithServer">
+      <soap:operation soapAction="http://tempuri.org/ISqlExecute/BulkInsertWithServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SqlExecute">
+    <wsdl:port name="BasicHttpBinding_ISqlExecute" binding="tns:BasicHttpBinding_ISqlExecute">
+      <soap:address location="http://sererp01.goodbabygroup.com/SqlExecuteService/SqlExecuteService.SqlExecute.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
